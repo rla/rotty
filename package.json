@@ -43,7 +43,7 @@
     "lint:syntax": "prettier --check .",
     "lint:eslint": "eslint src",
     "lint": "run-s lint:*",
-    "prepare": "run-s lint build test"
+    "prepublishOnly": "run-s lint build test"
   },
   "dependencies": {
     "jsonschema": "^1.4.1"

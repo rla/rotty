@@ -15,9 +15,6 @@ export const parseArguments = (argv: string[]): Arguments => {
  * Returns the command-line arguments that follow the script name.
  */
 const getArgumentsAfterScript = (argv: string[]) => {
-  const indexOfScript = argv.findIndex((arg) => arg.endsWith("index.js"));
-  if (indexOfScript < 0) {
-    throw new Error("Command-line argument parsing failed.");
-  }
-  return argv.slice(indexOfScript + 1);
+  // Returns actual arguments skipping node process name and the module name.
+  return argv.slice(2);
 };

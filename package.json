@@ -1,6 +1,6 @@
 {
   "name": "rotty",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Discovers bit-rot in files",
   "keywords": [
     "rot",
@@ -25,7 +25,8 @@
     "rotty": "dist/index.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "config-schema.json"
   ],
   "devDependencies": {
     "@types/node": "^20.3.1",

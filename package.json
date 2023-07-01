@@ -1,0 +1,51 @@
+{
+  "name": "rotty",
+  "version": "1.0.0",
+  "description": "Discovers bit-rot in files",
+  "keywords": [
+    "rot",
+    "bit-rot",
+    "cli",
+    "scrub",
+    "checksum",
+    "filesystem"
+  ],
+  "main": "dist/index.js",
+  "author": "Raivo Laanemets",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rla/rotty.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "type": "module",
+  "bin": {
+    "rotty": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.0",
+    "eslint": "^8.43.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.3"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist/*",
+    "test": "node --test dist",
+    "lint:syntax": "prettier --check .",
+    "lint:eslint": "eslint src",
+    "lint": "run-s lint:*",
+    "prepare": "run-s lint build test"
+  },
+  "dependencies": {
+    "jsonschema": "^1.4.1"
+  }
+}

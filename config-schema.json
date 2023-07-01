@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "skip": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "skipDotfiles": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

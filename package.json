@@ -1,6 +1,6 @@
 {
   "name": "rotty",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Discovers bit-rot in files",
   "keywords": [
     "rot",

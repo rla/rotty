@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import { validate } from "jsonschema";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { UserError } from "../cli/UserError.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -15,7 +16,7 @@ export const validateConfig = async (config: unknown) => {
   const schema = JSON.parse(await readFile(SCHEMA_FILENAME, "utf8"));
   const result = validate(config, schema);
   if (!result.valid) {
-    throw new Error(
+    throw new UserError(
       `Configuration file error: ${result.errors[0].property}: ${result.errors[0].message}.`
     );
   }

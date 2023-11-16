@@ -5,13 +5,14 @@ import { verifyAndUpdate } from "./cli/verifyAndUpdate.js";
 import { logStatus } from "./log/logStatus.js";
 import { parseArguments } from "./cli/parseArguments.js";
 import { initializeConfig } from "./cli/initializeConfig.js";
+import { UserError } from "./cli/UserError.js";
 
 (async () => {
   try {
     const args = parseArguments(process.argv);
     if (args.directory === undefined) {
       logStatus(`Command line: rotty <directory> [--init]`);
-      throw new Error("Directory not provided.");
+      throw new UserError("Directory not provided.");
     }
     const absoluteRootDirectory = resolve(args.directory);
     if (args.isInitMode) {
@@ -22,7 +23,11 @@ import { initializeConfig } from "./cli/initializeConfig.js";
       process.exit(verificationPassed ? 0 : 1);
     }
   } catch (err) {
-    console.error(err);
+    if (err instanceof UserError) {
+      console.error(err.message);
+    } else {
+      console.error(err);
+    }
     process.exit(1);
   }
 })();
